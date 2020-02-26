@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { withRouter } from "react-router-dom"
 
 /*
     The context is imported and used by individual components
@@ -19,7 +20,7 @@ export const EmployeeProvider = (props) => {
     }
 
     const addEmployee = employee => {
-        return fetch("http://localhost:8088/employees", {
+         return fetch("http://localhost:8088/employees", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,7 +29,6 @@ export const EmployeeProvider = (props) => {
         })
             .then(getEmployees)
     }
-
     /*
         Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
